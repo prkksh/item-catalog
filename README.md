@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is aimed at creating multiple SQL queries to obtain information from a news database. The code is expected to have single query to answer individual requests. The objective is to test SQL skills. (This project is for Logs Analysis from Udacity Full Stack Developer Nanodegree)
+
 
 ### Requirements
 
