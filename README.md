@@ -13,10 +13,10 @@
 
 ### Project Objectives
 
-The project has three objectives,
-* Most popular article of all time
-* Most popular article author of all time
-* Day on which more than 1% requests led to error
+The project has following objectives,
+*
+*
+*
 
 ### To run the Project
 * Install Vagrant and VirtualBox
