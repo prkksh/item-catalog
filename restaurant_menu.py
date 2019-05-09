@@ -18,11 +18,6 @@ DBSession = sessionmaker(bind=engine)
 # session.rollback()
 session = DBSession()
 
-# Create dummy user
-# User1 = User(name="admin", email="vinukonda.sruthi@gmail.com")
-# session.add(User1)
-# session.commit()
-
 #Menu for Pepperwood
 restaurant1 = Restaurant(name = "Pepperwood")
 
@@ -63,7 +58,7 @@ session.commit()
 
 
 
-#Menu for Super Stir Fry
+#Menu for Dosa Corner
 restaurant2 = Restaurant(name = "Dosa Corner")
 
 session.add(restaurant2)
@@ -88,7 +83,7 @@ session.commit()
 
 
 
-#Menu for Panda Garden
+#Menu for Brownie Science
 restaurant3 = Restaurant(name = "Brownie Science")
 
 session.add(restaurant3)
@@ -108,7 +103,7 @@ session.commit()
 
 
 
-#Menu for Thyme for that
+#Menu for Messy
 restaurant4 = Restaurant(name = "Messy ")
 
 session.add(restaurant4)
