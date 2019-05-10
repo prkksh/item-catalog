@@ -19,17 +19,17 @@ app = Flask(__name__)
 def restaurantMenu(restaurant_id):
     restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
     items = session.query(MenuItem).filter_by(restaurant_id = restaurant_id)
-    # output = ''
-    # for item in items:
-    #     output += item.name
-    #     output += '</br>'
-    #     output += item.price
-    #     output += '</br>'
-    #     output += item.description
-    #     output += '</br>'
-    #     output += '</br>'
-    # return output
-    return render_template('menu.html', restaurant=restaurant, items=items)
+    output = ''
+    for item in items:
+        output += item.name
+        output += '</br>'
+        output += item.price
+        output += '</br>'
+        output += item.description
+        output += '</br>'
+        output += '</br>'
+    return output
+    # return render_template('menu.html', restaurant=restaurant, items=items)
 
 if __name__ == '__main__':
     app.debug = True
