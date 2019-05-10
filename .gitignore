@@ -1,3 +1,5 @@
 README.txt
 database_setup.pyc
 catalog.db
+myenv
+__pycache__

@@ -137,38 +137,5 @@ session.commit()
 
 
 
-#Menu for Tony's Bistro
-restaurant1 = Restaurant(name = "Tony\'s Bistro ")
 
-session.add(restaurant1)
-session.commit()
-
-
-menuItem1 = MenuItem(name = "Shellfish Tower", description = "Lobster, shrimp, sea snails, crawfish, stacked into a delicious tower", price = "$13.95", course = "Entree", restaurant = restaurant1)
-
-session.add(menuItem1)
-session.commit()
-
-menuItem2 = MenuItem(name = "Chicken and Rice", description = "Chicken... and rice", price = "$4.95", course = "Entree", restaurant = restaurant1)
-
-session.add(menuItem2)
-session.commit()
-
-menuItem3 = MenuItem(name = "Mom's Spaghetti", description = "Spaghetti with some incredible tomato sauce made by mom", price = "$6.95", course = "Entree", restaurant = restaurant1)
-
-session.add(menuItem3)
-session.commit()
-
-menuItem4 = MenuItem(name = "Choc Full O\' Mint (Smitten\'s Fresh Mint Chip ice cream)", description = "Milk, cream, salt, ..., Liquid nitrogen magic", price = "$3.95", course = "Dessert", restaurant = restaurant1)
-
-session.add(menuItem4)
-session.commit()
-
-menuItem5 = MenuItem(name = "Tonkatsu Ramen", description = "Noodles in a delicious pork-based broth with a soft-boiled egg", price = "$7.95", course = "Entree", restaurant = restaurant1)
-
-session.add(menuItem5)
-session.commit()
-
-
-
-print "added menu items!"
+print("added menu items!")
