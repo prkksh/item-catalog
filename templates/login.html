@@ -16,9 +16,8 @@
 <!-- END PRE-REQUISITES FOR GOOGLE SIGN IN -->
 </head>
 <body>
-<meta name="google-signin-client_id" content="147460093154-727pk106eg98kb6taiq4kc70vlija14l.apps.googleusercontent.com">
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-<div id="result"></div>
+  <button id="signinButton">Google Signin</button>
+      <div id="result"></div>
 
 <script>
       $('#signinButton').click(function () {
@@ -38,7 +37,7 @@
                 if (result) {
                   $('#result').html('Login Successful!</br>' + result + '</br>Redirecting...');
                   setTimeout(function () {
-                    window.location.href = "/restaurants";
+                    window.location.href = "/restaurants/";
                   }, 4000);
                 } else if (authResult['error']) {
                   console.log('There was an error: ' + authResult['error']);
