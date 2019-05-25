@@ -1,20 +1,18 @@
 from flask import Flask, render_template, url_for, request
-from flask import redirect, flash, jsonify
+from flask import redirect, flash, jsonify, make_response
+from flask import session as login_session
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant, MenuItem, User
 
-from flask import session as login_session
-import random, string
-
 from oauth2client.client import flow_from_clientsecrets, FlowExchangeError
 
-from flask import make_response
-
+import random, string
 import json
 import httplib2
 import requests
+
 
 CLIENT_ID = json.loads(open('client_secret.json', 'r').read())['web']['client_id']
 
@@ -111,6 +109,11 @@ def gconnect():
     # ADD PROVIDER TO LOGIN SESSION
     login_session['provider'] = 'google'
 
+    user_id = getUserID(login_session['email'])
+    if not user_id:
+        user_id = createUser(login_session)
+    login_session['user_id'] = user_id
+
     output = ''
     output += '<h1>Welcome, '
     output += login_session['username']
@@ -129,7 +132,7 @@ def gdisconnect():
     #     response.headers['Content-Type'] = 'application/json'
     #     return response
 
-    access_token = login_session.get('credentials')
+    access_token = login_session.get('access_token')
     print('In gdisconnect access token is %s', access_token)
 
 
@@ -162,6 +165,31 @@ def gdisconnect():
         response = make_response(json.dumps('Failed to revoke token for given user.'), 400)
         response.headers['Content-Type'] = 'application/json'
         return response
+
+# Create User Profile
+def createUser(login_session):
+    newUser = User(name=login_session['username'], email=login_session[
+                   'email'], picture=login_session['picture'])
+    session.add(newUser)
+    session.commit()
+    user = session.query(User).filter_by(email=login_session['email']).one()
+    return user.id
+
+
+# Searh users index
+def getUserID(email):
+    try:
+        user = session.query(User).filter_by(email=email).one()
+        return user.id
+    except:
+        return None
+
+# Show all users
+@app.route('/users')
+def allUsers():
+    users = session.query(User).all()
+    admin1 = session.query(User).filter_by(email=login_session['email']).one()
+    return render_template('allUsers.html')
 
 # Show all restaurants list
 @app.route('/')
