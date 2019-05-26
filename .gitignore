@@ -4,3 +4,5 @@ catalog.db
 myenv
 __pycache__
 login_temp.html
+query_retrvr.py
+bootstrap-4.3.1
