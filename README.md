@@ -1,7 +1,7 @@
 # Item Catalog Project
 
 ## Overview
-This is a catalog app which the user can view, edit, create and delete entries. The app is a basic restaurant app with menus. The code follows PEP8 guidelines and has login features using google oauth2. (This project is for Item Catalog from Udacity Full Stack Developer Nanodegree)
+This is a catalog app which the user can view, edit, create and delete entries. Though users cannot edit or delete other users' data. The app is a basic restaurant app with menus. The code follows PEP8 guidelines and has login features using google oauth2. (This project is for Item Catalog from Udacity Full Stack Developer Nanodegree)
 
 
 ### Requirements
