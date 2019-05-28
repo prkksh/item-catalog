@@ -352,7 +352,7 @@ def editMenuItem(restaurant_id, menu_id):
     To edit a menu item
     """
     editedItem = session.query(MenuItem).filter_by(id=menu_id).one()
-    if editMenuItem.user_id != login_session['user_id']:
+    if editedItem.user_id != login_session['user_id']:
         return "<script>function noAuth() {alert('You have no access')}</script><body onload='noAuth()'>"  # noqa
     if request.method == 'POST':
         if request.form['name']:
